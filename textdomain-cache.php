@@ -4,7 +4,7 @@
  * @wordpress-plugin
  * Plugin Name:       MO-file cache
  * Plugin URI:        https://www.kntnt.com/
- * Description:       Caches MO-files for faster load_textdomain(). Install an objct cache for best performance.
+ * Description:       Caches MO-files for faster load_textdomain(). Install an object cache for best performance.
  * Version:           1.0.0
  * Author:            Per Soderlind
  * Author URI:        https://soderlind.no
@@ -18,14 +18,18 @@ add_filter( 'override_load_textdomain', function ( $retval, $domain, $mofile ) {
 
 	global $l10n;
 
-	if ( ! is_readable( $mofile ) ) return false;
+	if ( ! is_readable( $mofile ) ) {
+		return false;
+	}
 
 	$data = get_transient( md5( $mofile ) );
 	$mtime = filemtime( $mofile );
 
 	$mo = new MO();
 	if ( ! $data || ! isset( $data['mtime'] ) || $mtime > $data['mtime'] ) {
-		if ( ! $mo->import_from_file( $mofile ) ) return false;
+		if ( ! $mo->import_from_file( $mofile ) ) {
+			return false;
+		}
 		$data = [
 			'mtime' => $mtime,
 			'entries' => $mo->entries,
