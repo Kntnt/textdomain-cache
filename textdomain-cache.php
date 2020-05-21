@@ -2,12 +2,12 @@
 
 /**
  * @wordpress-plugin
- * Plugin Name:       MO-file cache
- * Plugin URI:        https://www.kntnt.com/
+ * Plugin Name:       Text Domain Cache
+ * Plugin URI:        https://github.com/Kntnt/textdomain-cache
  * Description:       Caches MO-files for faster load_textdomain(). Install an object cache for best performance.
  * Version:           1.0.0
  * Author:            Per Soderlind
- * Author URI:        https://soderlind.no
+ * Author URI:        https://soderlind.no/a-faster-load_textdomain-for-wordpress/
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  *
